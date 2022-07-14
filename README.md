@@ -31,3 +31,20 @@ book notes for "Effective C" by Robert C. Seacord
 
     - _Locale Specific Behavior_
         - behavior that depends on local conventions of nationality, culture, and language     
+
+### Chapter 2: Objects, Functions and Types
+
+- an _object_ is storage in which you can represent values
+
+- multiple declarations, the following are all valid:
+    ```c
+    char *src, c;
+    int x, y[5];
+    int m[12], n[15][3], o[21];
+    ```
+
+- (15) "each object has a storage duration that determines its _lifetime_, which is the time during program execution for which the object exists, has storage, ahas a constant address, and retains its last-stored value. Objects must not be referenced outside thier lifetime."
+
+- objects in local scope have _automatic storage duration_, they exist until execution leaves the block they're defined in
+
+- (16) "C distiguishes between _parameters_, which are objects declared as part of the function declaration that acquire a value on entry to the function, and _arguments_, which are comma-separated expressions you include in the function call expression."
