@@ -48,3 +48,13 @@ book notes for "Effective C" by Robert C. Seacord
 - objects in local scope have _automatic storage duration_, they exist until execution leaves the block they're defined in
 
 - (16) "C distiguishes between _parameters_, which are objects declared as part of the function declaration that acquire a value on entry to the function, and _arguments_, which are comma-separated expressions you include in the function call expression."
+
+- objects declared with [static storage](./chapter-2/static.c) persist after their function has exited
+    - static objects must be initialized with a constant value and not a variable
+        ```c
+        int *func(int i) {
+            const int j = i; // ok
+            static int k = j; // error
+            return &k;
+        }
+        ```
