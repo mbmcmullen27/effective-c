@@ -58,3 +58,9 @@ book notes for "Effective C" by Robert C. Seacord
             return &k;
         }
         ```
+
+- An _alignment_ represents the number of bytes between successive addresses ad which a given bject can be allocated
+    - [example](./chapter-2/alignment.c)
+    - I'm not sure I understand the example correctly, why does the author use the type 'unsigned char' to declare a buffer for the struct S?
+    - I am noticing that he hasn't used typedef for the struct so you can't use it like a normal type ` S buffer[sizeof(struct S)] `
+    - is that why it needs realignment using _Alignas? 
