@@ -64,3 +64,8 @@ book notes for "Effective C" by Robert C. Seacord
     - I'm not sure I understand the example correctly, why does the author use the type 'unsigned char' to declare a buffer for the struct S?
     - I am noticing that he hasn't used typedef for the struct so you can't use it like a normal type ` S buffer[sizeof(struct S)] `
     - is that why it needs realignment using _Alignas? 
+
+- C has 3 character types, char [a-zA-Z0-9], signed char and unsigned char, which can represent integer values
+    - there is also a wide character type, wchar_t to allow large character sets (non English letters)
+
+- a function declared with no parameters accepts any number of arguments of any type
