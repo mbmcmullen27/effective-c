@@ -69,3 +69,42 @@ book notes for "Effective C" by Robert C. Seacord
     - there is also a wide character type, wchar_t to allow large character sets (non English letters)
 
 - a function declared with no parameters accepts any number of arguments of any type
+
+- `str[i]` is equivalent to `*(str + i)`
+
+- _POSIX_ stands for Portable Operating System Interface
+
+- you can use a struct definition as a type definition for a pointer
+- sigline and sigline_p are available for use right away, they have been defined but are uninitialized
+    ```C
+    struct sigrecord {
+        int signum;
+        char signame[20];
+        char sigdesc[100];
+    } sigline, *sigline_p;
+    ```
+- SEE page 31 for an explanation of tags and self referential structs
+- examples:
+    ```C
+    struct tnode {
+        int count;
+        struct tnode *left;
+        struct tnode *right;
+    }
+
+    typedef struct tnode {
+        int count;
+        struct tnode *left;
+        struct tnode *right;
+    } tnode;
+
+    typedef struct tnode tnode;
+    struct tnode {
+        int count;
+        tnode *left;
+        tnode *right;
+    } tnode;
+    ```
+
+- (33) "Objects of _volatile_-qualified types serve a special purpose. Static volatile qualified objects are used to model momory-mapped input/output (I/O) ports, and static constant volatile-qualifed objects odel memory-mapped input ports such as a real-time clock. The values stored in these objects may change without the knowledge of the compiler \[...\] Using a volatile-qualified type lets the compiler know that the value may change, and ensures that every access to the real-time clock occurs (otherwise, an access to the real-time clock may be optimized away or replaced by a previously read and cached value)."
+
