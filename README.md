@@ -108,3 +108,7 @@ book notes for "Effective C" by Robert C. Seacord
 
 - (33) "Objects of _volatile_-qualified types serve a special purpose. Static volatile qualified objects are used to model momory-mapped input/output (I/O) ports, and static constant volatile-qualifed objects odel memory-mapped input ports such as a real-time clock. The values stored in these objects may change without the knowledge of the compiler \[...\] Using a volatile-qualified type lets the compiler know that the value may change, and ensures that every access to the real-time clock occurs (otherwise, an access to the real-time clock may be optimized away or replaced by a previously read and cached value)."
 
+### Chapter 3: Arithmetic Types
+
+- constants for maximum and minimum representable values are stored in `<limits.h>`
+- when declaring an `unsigned` value, the `int` keyword can be omitted 
