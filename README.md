@@ -112,3 +112,7 @@ book notes for "Effective C" by Robert C. Seacord
 
 - constants for maximum and minimum representable values are stored in `<limits.h>`
 - when declaring an `unsigned` value, the `int` keyword can be omitted 
+- loop that never terminates because of integer wraparound
+    ```C
+    for (unsigned int i = n; i >=0; i--)
+    ```
