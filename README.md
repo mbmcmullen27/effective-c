@@ -116,3 +116,17 @@ book notes for "Effective C" by Robert C. Seacord
     ```C
     for (unsigned int i = n; i >=0; i--)
     ```
+    
+- author pens an ugly nested conditional operator (?:) on page (43)
+- I think he does this because macros have strict rules about newlines
+    ```C
+    #define AbsM(i,flag) ((i) >= 0 ? (i) : ((i)==(flag) ? (flag) : -(i)))
+    ```
+
+- (44) "Unsigned integers have well-defined wraparound behavior. Signed integer overflow, or the possibility of it, should always be considered a defect."
+- if a constant starts with a 0 followed by other digits its an _octal constant_
+- _hexadecimal constants_ are prefixed with `0x`
+    ```C
+    int permissions = 0777 // octal
+    int burger = 0xDEADBEEF // hex
+    ```
