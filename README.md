@@ -130,3 +130,6 @@ book notes for "Effective C" by Robert C. Seacord
     int permissions = 0777 // octal
     int burger = 0xDEADBEEF // hex
     ```
+- _implicit conversion_ between types (casting) is sometimes called _coercion_
+- (53) "try not t use explicit conversions because casts can disable important diagnostics"
+    - which diagnostics?
