@@ -133,3 +133,5 @@ book notes for "Effective C" by Robert C. Seacord
 - _implicit conversion_ between types (casting) is sometimes called _coercion_
 - (53) "try not t use explicit conversions because casts can disable important diagnostics"
     - which diagnostics?
+
+### Chapter 4: Expressions and Operators
