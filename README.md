@@ -135,3 +135,39 @@ book notes for "Effective C" by Robert C. Seacord
     - which diagnostics?
 
 ### Chapter 4: Expressions and Operators
+
+- _side effects_ are changes to the state  of the execution environment
+- _function designator_ is an expression that has function type and is used to invoke a function
+    - in an expression a function designator is converted to _pointer-to-function returning type_ at compile time
+- _variadic functions_ are functions that take a variable number of arguments
+
+- example of passing a function as an argument (see also [exercise_2](./chapter-2/excercise_2.c))
+    ```C
+    int f(void){
+        // ...
+        return 0;
+    }
+    void g(int (*func)(void)) {
+        // ...
+        if (func() != 0)
+            printf("g failed\n");
+    }
+
+    g(f);
+    ```
+    - g could also be defined `g(int func(void))`
+
+- `++i` is equivalent to `i = i + 1` except that _i_ is evaluated only once
+    - I remeber being taught that ++i was more efficient because of 'compiler optimizations' and this must be what they meant
+
+- addition is left associative `a + b + c` is equivalent to `((a + b) + c)`
+- assignment is right associative `a = b = c` is equivalent to `(a = (b = c))`
+
+QUESTION: what's a _compound literal_?
+
+- a _sequence point_ is the juncture at which all side effects will have completed
+    - in between full expressions
+    - entering or exiting a called function
+
+- (67) the operand to sizeof is not evaluated
+    - does passing an expression to sizeof cause an error?
