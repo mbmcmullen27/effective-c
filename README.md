@@ -171,3 +171,13 @@ QUESTION: what's a _compound literal_?
 
 - (67) the operand to sizeof is not evaluated
     - does passing an expression to sizeof cause an error?
+
+- (71) "Even though you could use left and right shifts to multiply or divide by a power of two, it's not a good idea to use a shift operation for this purpose. It is best to use the multiplication and division operations and let the compiler determine when to optimize processing by replacing these operations with a shift operation. Performing this substitution yourself is an example of _premature optimization_. Donald Knuth \[...\] has described premature optimization as 'the root of all evil.'"
+
+- (74) on short circuiting logical operators || and &&, "Because of this, unevaluated is not evaluated to determine its value"
+    - "Short circuiting is commonly used in operations with pointers"
+        ```C
+        bool isN(int* ptr, int n) {
+            return ptr && *ptr == n; // don't dereference a null pointer
+        }
+        ```
