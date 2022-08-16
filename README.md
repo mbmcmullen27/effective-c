@@ -181,3 +181,5 @@ QUESTION: what's a _compound literal_?
             return ptr && *ptr == n; // don't dereference a null pointer
         }
         ```
+
+- (79) C allows a pointer t be formed to each element of an array, including one past the last element of the array object (also reffered to as the _too-far_ pointer)
