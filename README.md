@@ -183,3 +183,11 @@ QUESTION: what's a _compound literal_?
         ```
 
 - (79) C allows a pointer t be formed to each element of an array, including one past the last element of the array object (also reffered to as the _too-far_ pointer)
+
+### Chapter 5: Control Flow
+
+- a _compound statement_ or _block_ isexecuded as a single statement
+    - this is why an if statement can have no braces and a single expression, or take a block    
+
+- compiler flag `-Wswitch-enum` will help diagnose unhandled enum values in switch statements
+    - there seems to be a lot of useful debugging flags, but how helpful are they if you need to know which ones to include ahead of time?
