@@ -191,3 +191,6 @@ QUESTION: what's a _compound literal_?
 
 - compiler flag `-Wswitch-enum` will help diagnose unhandled enum values in switch statements
     - there seems to be a lot of useful debugging flags, but how helpful are they if you need to know which ones to include ahead of time?
+
+- smart use of goto and labels: goto chain for cleaning up memory/closing files
+    - (94) resources are allocated in a certain order, operated upon, and then released in reverse
