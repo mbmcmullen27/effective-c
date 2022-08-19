@@ -194,3 +194,6 @@ QUESTION: what's a _compound literal_?
 
 - smart use of goto and labels: goto chain for cleaning up memory/closing files
     - (94) resources are allocated in a certain order, operated upon, and then released in reverse
+
+##### Excercises
+2. find_element in Listing 5-13 already returns the position of the key
