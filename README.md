@@ -197,3 +197,12 @@ QUESTION: what's a _compound literal_?
 
 ##### Excercises
 2. find_element in Listing 5-13 already returns the position of the key
+
+### Chapter 6: Dtnamically Allocated Memory
+
+- (100) Dynamically allocated memory is allocated from the _heap_, which is simply one or more large, subdividable blocks of memory that are managed by the memory manager
+
+- `calloc` allocates storage for an array of objects:
+    ```c
+    void *calloc(size_t nmemb, size_t size)
+    ```    
