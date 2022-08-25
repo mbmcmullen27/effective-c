@@ -206,3 +206,11 @@ QUESTION: what's a _compound literal_?
     ```c
     void *calloc(size_t nmemb, size_t size)
     ```    
+    - whats the difference between `calloc` and `reallocarray`?
+- to prevent duplicate calls to free and attempts to access freed memory, set a pointer to null after freeing it
+    ```c
+    char *ptr = malloc(16);
+    // ...
+    free(ptr);
+    ptr = NULL;
+    ```
