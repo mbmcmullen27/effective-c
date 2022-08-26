@@ -214,3 +214,5 @@ QUESTION: what's a _compound literal_?
     free(ptr);
     ptr = NULL;
     ```
+- (110) Starting with C99, the last member of a struct with more than one member can have _incomplete array type_, which means that the [array](./chapter-6/incomplete_array_type.c) has an unknown size.
+    - see CERT C rule MEM33-C for more information on allocatin and copying structures containing flexible array members
