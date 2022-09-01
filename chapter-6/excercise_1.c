@@ -1,0 +1,10 @@
+#include <dirent.h>
+#include <stdlib.h>
+#include <unistd.h>
+
+int closedir(DIR *dirp) {
+    int ret = close(dirp->d_fd);
+    free(dirp->d_buf);
+    free(dirp);
+    return ret;
+}
