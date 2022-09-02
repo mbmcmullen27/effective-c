@@ -198,7 +198,7 @@ QUESTION: what's a _compound literal_?
 ##### Excercises
 2. find_element in Listing 5-13 already returns the position of the key
 
-### Chapter 6: Dtnamically Allocated Memory
+### Chapter 6: Dynamically Allocated Memory
 
 - (100) Dynamically allocated memory is allocated from the _heap_, which is simply one or more large, subdividable blocks of memory that are managed by the memory manager
 
@@ -218,3 +218,7 @@ QUESTION: what's a _compound literal_?
     - see CERT C rule MEM33-C for more information on allocatin and copying structures containing flexible array members
 
 - you can use [dmalloc](https://dmalloc.com/) to debug memory allocation issues. [example](./chapter-6/dmalloc.c)
+
+### Chapter 7: Characters and Strings
+
+- (122) Instead of specifying a character encoding like java, each C implementation defines botha  _source character set_ in which source files are written and an _execution character set_ used for character and string literals at compile time
