@@ -222,3 +222,8 @@ QUESTION: what's a _compound literal_?
 ### Chapter 7: Characters and Strings
 
 - (122) Instead of specifying a character encoding like java, each C implementation defines botha  _source character set_ in which source files are written and an _execution character set_ used for character and string literals at compile time
+
+- (133) There is some risk that, if the string literal changes during maintenance, a string could unintentionally be changed to a character array with no terinating null character, particularly when the string literal is defined separately from the declaration \[...\] If you don't specify the bound of the array, the compiler will allocate sufficient space for the entire string literal, including the terminating null character.
+
+- (134) POSIX also defines several string-handling functions, such as strdup and strndup, that provide another set of string APIs you can use on POSIX-compliant platforms such as Linux and Unix (IEE Std 1003.1:2018)
+    - **POSIX defines functions? So is it a library? What does it actually mean to be POSIX-compliant?**
