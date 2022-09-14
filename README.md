@@ -227,3 +227,18 @@ QUESTION: what's a _compound literal_?
 
 - (134) POSIX also defines several string-handling functions, such as strdup and strndup, that provide another set of string APIs you can use on POSIX-compliant platforms such as Linux and Unix (IEE Std 1003.1:2018)
     - **POSIX defines functions? So is it a library? What does it actually mean to be POSIX-compliant?**
+
+- (138) common strcpy implementation
+    ```c
+    char *strcpy(char *dest, const char *src) {
+        char *save = dest;
+        while (*dest++ = *src++);
+        return save;
+    }
+    ```
+    - This is a very dense while loop, it looks very clean 
+
+- (139) don't assume that the C Standard Library functions validate arguments unless the standard explicitly requires them to.
+- (140) The gets function is a flawed input function that accepts input without providing any way to specify the size of the destination array. For that reason, it cannot prevent buffer overflows \[...\] the gets function was deprecated in C99 and eliminated from C11. \[...\] You should _never_ use this function, and you should replace any use of the gets function you find in any code you are maintaining.
+    - "Because the gets function is so bad, we'll spend some time examining why it's so awful"
+    - lol
