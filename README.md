@@ -242,3 +242,6 @@ QUESTION: what's a _compound literal_?
 - (140) The gets function is a flawed input function that accepts input without providing any way to specify the size of the destination array. For that reason, it cannot prevent buffer overflows \[...\] the gets function was deprecated in C99 and eliminated from C11. \[...\] You should _never_ use this function, and you should replace any use of the gets function you find in any code you are maintaining.
     - "Because the gets function is so bad, we'll spend some time examining why it's so awful"
     - lol
+
+- Annex K bountds checking interface has a fixed version `gets_s`
+- POSIX string functions (strdup, strndup) allocate dynamic memory when called so each need to be followed by a call to free
