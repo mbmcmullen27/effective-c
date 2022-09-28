@@ -245,3 +245,9 @@ QUESTION: what's a _compound literal_?
 
 - Annex K bountds checking interface has a fixed version `gets_s`
 - POSIX string functions (strdup, strndup) allocate dynamic memory when called so each need to be followed by a call to free
+
+### Chapter 8: Input/Output
+
+- (148) C uses the opaque FILE data type to represent streams
+- (150) The output stream of one program can be redirected to be another application's input stream by using POSIX pipes \[...\] chain applications togeher by separating commands with the vertical bar character `|`
+  - **Pipes are a POSIX feature too??** 
