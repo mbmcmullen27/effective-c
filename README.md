@@ -251,3 +251,5 @@ QUESTION: what's a _compound literal_?
 - (148) C uses the opaque FILE data type to represent streams
 - (150) The output stream of one program can be redirected to be another application's input stream by using POSIX pipes \[...\] chain applications togeher by separating commands with the vertical bar character `|`
   - **Pipes are a POSIX feature too??** 
+- (150) Each stream has _orientation_ that indicates whether the stream contains narrow or wide characters.
+- (151) When you open or create a file its associated with a stream
