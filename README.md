@@ -253,3 +253,11 @@ QUESTION: what's a _compound literal_?
   - **Pipes are a POSIX feature too??** 
 - (150) Each stream has _orientation_ that indicates whether the stream contains narrow or wide characters.
 - (151) When you open or create a file its associated with a stream
+- (156) If putc is is implemented as a macro, it may evaluate its arguments more than once, so the arguments should never be expressions with side effects.
+  - See CERT C rule FIO41-C
+- REMINDER: don't read strings with gets() always use fgets()
+  - gets was deprecated in C99 and removed from C11
+
+- Setting the position in a file
+  - [listing 8-2](./chapter-8/ftell_fseek.c)
+  - [listing 8-3](./chapter-8/fgetpos_fsetpos.c)
