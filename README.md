@@ -261,3 +261,14 @@ QUESTION: what's a _compound literal_?
 - Setting the position in a file
   - [listing 8-2](./chapter-8/ftell_fseek.c)
   - [listing 8-3](./chapter-8/fgetpos_fsetpos.c)
+
+- Reading formatted text streams
+  - [listing 8-5](./chapter-8/signals.c)
+  - the format string passed to fscanf uses _conversion specifiers_ to match records
+    - "%d%9s%*[ \t]%99[^\n]"
+    - set the optional length specifier carefully or a buffer overflow may occur
+    - "[ \t]" is a _scanset_
+    - "%*[ \t]" discards horizontal whitespace
+    - "*" is the _assignment-suppressing specifier_ 
+    - carret character "^" is called a _circumflex_
+    - NOTE: this is similar but it is not regex
