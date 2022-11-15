@@ -272,3 +272,8 @@ QUESTION: what's a _compound literal_?
     - "*" is the _assignment-suppressing specifier_ 
     - carret character "^" is called a _circumflex_
     - NOTE: this is similar but it is not regex
+
+- Reading from and Writing to Binary Streams
+    - [listing 8-6](./chapter-8/fwrite.c)
+    - [listing 8-7](./chapter-8/fread.c)
+    - ^^ these examples do not work as described in the book
