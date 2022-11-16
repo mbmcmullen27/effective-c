@@ -277,3 +277,38 @@ QUESTION: what's a _compound literal_?
     - [listing 8-6](./chapter-8/fwrite.c)
     - [listing 8-7](./chapter-8/fread.c)
     - ^^ these examples do not work as described in the book
+
+### Chapter 9: Preprocessor
+
+- (170) Conceptually, the compilation process consists of a pipeline of eight phases
+    1. Character mapping
+    2. Line splicing
+    3. Tokenization
+    4. Preprocessing
+    5. Character-set mapping
+    6. String concatenation
+    7. Translation
+    8. Linkage
+
+- (170) the preprocessor runs before the source code is translated into object code by the translator. This allows the preprocessor to modify the source code written by the user before it's operated on by the translator.
+
+- _preprocessing directives_ are made of primitave tokens and begin with a leading '#' and terminate with a newline character
+
+- Listing 9-3: #error directive
+    ```c
+    #if __STDC__ && __STDC_NO_THREADS__ != 1
+    #include <threads.h>
+    // ...
+    #elif POSIX_THREADS == 200809L
+    #include <pthread.h>
+    // ...
+    #else
+    #error Neither <threads.h> nor <pthread.h> is available
+    #endif
+    ```
+
+- Using _Header Guards_ to avoid duplicate inclusions
+    - [foo.c](./chapter-9/foo.c)
+    - [bar.h](./chapter-9/bar.h)
+    - use `clang -E foo.c` to see resulting Translation Unit
+
