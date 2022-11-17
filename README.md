@@ -312,3 +312,54 @@ QUESTION: what's a _compound literal_?
     - [bar.h](./chapter-9/bar.h)
     - use `clang -E foo.c` to see resulting Translation Unit
 
+- use the `#define` directive to define a macro
+    - a _function-like_ macro is similar to a function but allows you to perform operations using the symbols in the source file. Meaning you can create a new variable name, or reference the source file and line number the macro is on
+    - an _object-like_ macro is an identifier that will be replaced by a code fragment
+    - [listing 9-5](./chapter-9/macros.c)
+
+- (177) _Hungarian notation_ is an identifier-naming convention in which the name of a variable or function indicates its intention or kind, and in some dialects, its type.
+- (178) Any parameter in the replacement listpreceded by a '#' token is replaced with a string literal preprocessing token that contains the text of the argument preprocessing tokens (a process sometimes called _stringizing_)
+
+    source:
+    ```c
+    #define STRINGIZE(x) #x
+    const char *str = STRINGIZE(12);
+    ```
+    becomes:
+    ```c
+    const char *str = "12";
+    ```
+- (178) The preprocessor also deletes all instances of the '##' preprocessing token in the replacement list, concatenating the preceding preprocessing token with teh following token, which is called _token pasting_
+
+    source:
+    ```c
+    #define PASTE(x, y) x ## _ ## y
+    int PASTE(food, bar) = 12;
+    ```
+    becomes:
+    ```c
+    int food_bar = 12;
+    ```
+- Tabel 9-9: unsafe expansion
+
+    source:
+    ```c
+    #define bad_abs(x) (x >= 0 ? x : -x)
+
+    int func(int i) {
+        return bad_abs(i++);
+    }
+    ```
+    becomes:
+    ```c
+    int func(int i) {
+        return (i++ >= 0 ? i++ : -i++);
+    }
+    ```
+- (180) a comma in a function-like macro invocation is always interpreted as a macro argument delimiter
+    - I'm not sure I understand this example in table 9-10 on page 180
+
+- (180) A _generic selection expression_ maps the type of its unevaluated operand expression to an associated expression. If none of th associated types match, it can optionally map to a default expression. You can use _type-generic macros_ to make your code more readable.
+    - [Table 9-11](./chapter-9/generic_selection_expression.c)
+
+- (182) Table 9-12: Predefined Macros
