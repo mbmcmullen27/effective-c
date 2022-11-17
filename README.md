@@ -365,3 +365,24 @@ QUESTION: what's a _compound literal_?
 - (182) Table 9-12: Predefined Macros
 
 ### Chapter 10: Program Structure
+
+- the author validates some patterns in the way I use header files to compartmentalize code
+- (190) Libraries can often allow a program written with one compiler to use code wthat was built by a different compiler
+    - I never thought about this but I guess I should have guessed it
+    - I wonder what the limits of this are. I suppose as long as something compiles to machine code for your processor architecture, it really wouldn't matter what compiler or implementation was used to build it?
+
+- (190) A _static library_ \[...\] incorporates its machine or object code directly into the resulting executable, which means a static library is often tied to a specific release of the program
+- (190) A _dynamic library_, also referred to as a shared library or a dynamic shared object, is an executable without the startup routines. It can be pakced with the executable or installed separately but must be available when the executable calls a function provided by the dynamic library
+
+- linkage:
+    ```c
+    static int i;
+    extern void foo(int j) {
+        // ...
+    }
+    ```
+    - `i` is declared with explicit internal linkage.
+    - `foo` is declared with explicit external linkage.
+    - `j` has no linkage because it is a parameter.
+
+    - (192) within the source file all declarations that are implementation details should be explicitly declared static to keep them private, accesible to just that source file.
