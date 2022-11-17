@@ -1,0 +1,1 @@
+clang bin/driver.o -Lbin -lPrimalityUtilities -o bin/primetest

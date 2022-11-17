@@ -1,0 +1,1 @@
+ar rcs bin/libPrimalityUtilities.a bin/isprime.o

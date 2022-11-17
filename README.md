@@ -386,3 +386,15 @@ QUESTION: what's a _compound literal_?
     - `j` has no linkage because it is a parameter.
 
     - (192) within the source file all declarations that are implementation details should be explicitly declared static to keep them private, accesible to just that source file.
+
+- in the prime test example function definition `static unsigned long long *convert_command_line_args(int argc, const char *argv[], size_t *num_args)` causes a compile error
+    ```sh
+        driver.c:74:64: error: passing 'char **' to parameter of type 'const char **' discards qualifiers in nested pointer types [-Werror,-Wincompatible-pointer-types-discards-qualifiers]
+            unsigned long long *vals = convert_command_line_args(argc, argv, &num_args);
+                                                                    ^~~~
+        driver.c:36:76: note: passing argument to parameter 'argv' here
+        static unsigned long long *convert_command_line_args(int argc, const char *argv[], size_t *num_args) {
+    ```
+    - removing const from the second parameter allows it to compile
+
+- (198) By convention, static libraries on Linux systems are prefixed with _lib_ and have a _.a_ file extension
