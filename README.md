@@ -419,3 +419,4 @@ QUESTION: what's a _compound literal_?
     }
     ```
 - (203) disable assertions before code is deployed by defining the NDEBUG macro
+- (216) A common approach to dynamic analysis is to _instrument_ the code \[...\] by enabling compile-time flags that inject extra instructions into the executable
