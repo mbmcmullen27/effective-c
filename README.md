@@ -398,3 +398,24 @@ QUESTION: what's a _compound literal_?
     - removing const from the second parameter allows it to compile
 
 - (198) By convention, static libraries on Linux systems are prefixed with _lib_ and have a _.a_ file extension
+
+### Chapter 11: Debugging, Testing, and Analysis
+
+- (199) C supports static assertions that can be checked at compile time using `static_assert`, and runtime assertions that are checked during program execution using assert.
+- static_assert examples:
+    - [listing 11-1](/chapter-11/packed.c)
+        - (200) because a static assertion is a declaration, it can appear at file scope
+    - [listing 11-2](/chapter-11/clear.c)
+        - (201) because static assertions are evaluated at compile time, placing them within executable code has no impact on the runtime efficiency of the program.
+        - See CERT C rule FIO34-C for more info on the error this assertion is checking for
+    - [listing 11-3](/chapter-11/bounds.c)
+        - (202) the string literal is a message for the developer or maintainer, and not an end user of the system. It's inteded to provide information useful to debugging.
+- assert example:
+    ```c
+    void *dup_string(size_t size, char *str) {
+        assert(size <= LIMIT);
+        assert(str != NULL);
+        // ...
+    }
+    ```
+- (203) disable assertions before code is deployed by defining the NDEBUG macro
