@@ -3,13 +3,14 @@ SHELL = /usr/bin/env bash -o pipefail
 
 SOURCES = $(wildcard chapter-[1-9]/*.c chapter-11/*.c)
 NAMES = $(basename $(SOURCES))
-DIST = $(subst ./,dist/,$(wildcard ./chapter-*/))
+DIRS = $(wildcard ./chapter-*/)
+DIST = $(subst ./,dist/,$(DIRS))
 
 all: $(DIST) $(NAMES)
 $(NAMES): $(SOURCES)
 	cc $@.c -o dist/$@
 
-$(DIST): $(wildcard chapter-*/)
+$(DIST): $(DIRS)
 	mkdir -p $@
 
 .Phony: clean check distcheck failing
