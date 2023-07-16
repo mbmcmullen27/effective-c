@@ -10,3 +10,4 @@ int main(void) {
     printf("Alignment of arr = %zu\n", _Alignof(arr));
     printf("Alignment of max_align_t = %zu\n", alignof(max_align_t));
 }
+

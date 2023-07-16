@@ -16,3 +16,4 @@ void assignInterestRate(AccountType account) {
     printf("Interest rate = %g.\n", interest_rate);
 }
 
+
