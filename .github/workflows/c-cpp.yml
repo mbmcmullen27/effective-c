@@ -25,7 +25,7 @@ jobs:
     - name: zip
       run: cd dist && zip exercises.zip ./*
     - uses: actions/upload-artifact@v3
-        with:
-          name: exercises
-          path: dist/exercises.zip
+      with:
+        name: exercises
+        path: dist/exercises.zip
 
