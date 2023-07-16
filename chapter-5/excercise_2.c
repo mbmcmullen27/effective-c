@@ -1,3 +1,5 @@
+#include <stddef.h>
+
 size_t find_element(size_t len, int arr[len], int key) {
     size_t pos = (size_t) - 1;
     for (size_t i = 0; i < len; ++i) {
@@ -11,3 +13,5 @@ size_t find_element(size_t len, int arr[len], int key) {
 
     return pos;
 }
+
+void main(){}

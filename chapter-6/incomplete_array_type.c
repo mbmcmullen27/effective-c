@@ -16,3 +16,5 @@ void *func(size_t array_size) {
         p->data[i] = 17;
     }
 }
+
+int main(){}

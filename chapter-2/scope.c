@@ -1,3 +1,5 @@
+#include <stdio.h>
+
 int j;
 
 void f(int i) {
@@ -12,3 +14,6 @@ void f(int i) {
 
 void g(int j);
 
+void main(){
+  f(10);
+}

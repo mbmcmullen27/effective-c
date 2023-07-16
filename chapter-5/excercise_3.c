@@ -1,5 +1,6 @@
 #include <limits.h>
 #include <stdio.h>
+#include <stdio.h>
 
 int absolute_value(int a) {
     if (a < 0) {

@@ -8,3 +8,5 @@ int closedir(DIR *dirp) {
     free(dirp);
     return ret;
 }
+
+int main(){}

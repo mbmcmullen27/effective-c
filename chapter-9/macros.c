@@ -4,3 +4,5 @@
 int i = FOO;
 int j = BAR(10);
 int k = BAR(2 + 2);
+
+int main(){}
