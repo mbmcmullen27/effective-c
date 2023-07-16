@@ -1,3 +1,5 @@
+#include <stdio.h>
+
 typedef enum { Savings, Checking, MoneyMarket } AccountType;
 void assignInterestRate(AccountType account) {
     double interest_rate;
@@ -17,3 +19,4 @@ void assignInterestRate(AccountType account) {
 }
 
 
+void main(){}

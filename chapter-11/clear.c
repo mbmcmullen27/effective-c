@@ -10,3 +10,5 @@ void clear_stdin(void) {
         static_assert(UCHAR_MAX < UINT_MAX, "FIO34-C violation");
     } while (c != EOF);
 }
+
+int main(){}

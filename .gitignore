@@ -1,3 +1,4 @@
 */*.out
 chapter-6/caesar
 chapter-10/bin/*
+dist/

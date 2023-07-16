@@ -1,3 +1,5 @@
+#include <string.h>
+
 static const char prefix[] = "Error No: ";
 #define ARRAYSIZE 14
 char str[ARRAYSIZE];
