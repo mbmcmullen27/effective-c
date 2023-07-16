@@ -21,3 +21,10 @@ jobs:
       run: make check
     - name: make distcheck
       run: make distcheck
+    - name: zip
+      run: cd dist && zip exercises.zip ./*
+    - uses: actions/upload-artifact@v3
+        with:
+          name: exercises
+          path: dist/exercises.zip
+

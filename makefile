@@ -5,6 +5,7 @@ SOURCES = $(wildcard chapter-[1-9]/*.c chapter-11/*.c)
 NAMES = $(basename $(SOURCES))
 DIRS = $(wildcard ./chapter-*/)
 DIST = $(subst ./,dist/,$(DIRS))
+DATA = chapter-8/signals.txt
 
 all: $(DIST) $(NAMES)
 $(NAMES): $(SOURCES)
@@ -12,6 +13,9 @@ $(NAMES): $(SOURCES)
 
 $(DIST): $(DIRS)
 	mkdir -p $@
+
+dist/$(DATA): $(DIST) $(DATA)
+	cp $(DATA) dist/$(DATA)
 
 .Phony: clean check distcheck failing
 clean: dist/*
