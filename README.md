@@ -10,7 +10,7 @@ book notes for "Effective C" by Robert C. Seacord
     - Provide only one way to do an operation. Also known as _conservation of mechanism_
     - Make it fast
 
-### Chapter 1: Gettting Started With C
+### Chapter 1: Getting Started With C
 - invoke the linux system compiler `cc hello.c`
 - `#include` statements are preprocessor directives
 - (3) "C defines two possible execution environments: _freestanding_ and _hosted_. A freestanding environment may not provide an operating system and is typically used in embedded programming."
@@ -23,7 +23,7 @@ book notes for "Effective C" by Robert C. Seacord
 
     - _Unspecified Behavior_
         - behavior for which the standard provides two or more options but imposes no requirement on which option is chosen by an implementation. Each execution of a given expression may have different results or produce a different value than a previous execution of the same expression
-        - ex: function parameter storage layout, which can varry among function invocations within the same program
+        - ex: function parameter storage layout, which can vary among function invocations within the same program
 
     - _Undefined Behavior_
         - behavior that is not defined by the c standard
@@ -43,7 +43,7 @@ book notes for "Effective C" by Robert C. Seacord
     int m[12], n[15][3], o[21];
     ```
 
-- (15) "each object has a storage duration that determines its _lifetime_, which is the time during program execution for which the object exists, has storage, ahas a constant address, and retains its last-stored value. Objects must not be referenced outside thier lifetime."
+- (15) "each object has a storage duration that determines its _lifetime_, which is the time during program execution for which the object exists, has storage, has a constant address, and retains its last-stored value. Objects must not be referenced outside their lifetime."
 
 - objects in local scope have _automatic storage duration_, they exist until execution leaves the block they're defined in
 
@@ -59,7 +59,7 @@ book notes for "Effective C" by Robert C. Seacord
         }
         ```
 
-- An _alignment_ represents the number of bytes between successive addresses ad which a given bject can be allocated
+- An _alignment_ represents the number of bytes between successive addresses ad which a given object can be allocated
     - [example](./chapter-2/alignment.c)
     - I'm not sure I understand the example correctly, why does the author use the type 'unsigned char' to declare a buffer for the struct S?
     - I am noticing that he hasn't used typedef for the struct so you can't use it like a normal type ` S buffer[sizeof(struct S)] `
@@ -106,7 +106,7 @@ book notes for "Effective C" by Robert C. Seacord
     } tnode;
     ```
 
-- (33) "Objects of _volatile_-qualified types serve a special purpose. Static volatile qualified objects are used to model momory-mapped input/output (I/O) ports, and static constant volatile-qualifed objects odel memory-mapped input ports such as a real-time clock. The values stored in these objects may change without the knowledge of the compiler \[...\] Using a volatile-qualified type lets the compiler know that the value may change, and ensures that every access to the real-time clock occurs (otherwise, an access to the real-time clock may be optimized away or replaced by a previously read and cached value)."
+- (33) "Objects of _volatile_-qualified types serve a special purpose. Static volatile qualified objects are used to model memory-mapped input/output (I/O) ports, and static constant volatile-qualifed objects model memory-mapped input ports such as a real-time clock. The values stored in these objects may change without the knowledge of the compiler \[...\] Using a volatile-qualified type lets the compiler know that the value may change, and ensures that every access to the real-time clock occurs (otherwise, an access to the real-time clock may be optimized away or replaced by a previously read and cached value)."
 
 ### Chapter 3: Arithmetic Types
 
@@ -158,7 +158,7 @@ book notes for "Effective C" by Robert C. Seacord
     - g could also be defined `g(int func(void))`
 
 - `++i` is equivalent to `i = i + 1` except that _i_ is evaluated only once
-    - I remeber being taught that ++i was more efficient because of 'compiler optimizations' and this must be what they meant
+    - I remember being taught that ++i was more efficient because of 'compiler optimizations' and this must be what they meant
 
 - addition is left associative `a + b + c` is equivalent to `((a + b) + c)`
 - assignment is right associative `a = b = c` is equivalent to `(a = (b = c))`
@@ -182,11 +182,11 @@ QUESTION: what's a _compound literal_?
         }
         ```
 
-- (79) C allows a pointer t be formed to each element of an array, including one past the last element of the array object (also reffered to as the _too-far_ pointer)
+- (79) C allows a pointer t be formed to each element of an array, including one past the last element of the array object (also referred to as the _too-far_ pointer)
 
 ### Chapter 5: Control Flow
 
-- a _compound statement_ or _block_ isexecuded as a single statement
+- a _compound statement_ or _block_ is executed as a single statement
     - this is why an if statement can have no braces and a single expression, or take a block    
 
 - compiler flag `-Wswitch-enum` will help diagnose unhandled enum values in switch statements
@@ -195,7 +195,7 @@ QUESTION: what's a _compound literal_?
 - smart use of goto and labels: goto chain for cleaning up memory/closing files
     - (94) resources are allocated in a certain order, operated upon, and then released in reverse
 
-##### Excercises
+##### Exercises
 2. find_element in Listing 5-13 already returns the position of the key
 
 ### Chapter 6: Dynamically Allocated Memory
@@ -215,15 +215,15 @@ QUESTION: what's a _compound literal_?
     ptr = NULL;
     ```
 - (110) Starting with C99, the last member of a struct with more than one member can have _incomplete array type_, which means that the [array](./chapter-6/incomplete_array_type.c) has an unknown size.
-    - see CERT C rule MEM33-C for more information on allocatin and copying structures containing flexible array members
+    - see CERT C rule MEM33-C for more information on allocating and copying structures containing flexible array members
 
 - you can use [dmalloc](https://dmalloc.com/) to debug memory allocation issues. [example](./chapter-6/dmalloc.c)
 
 ### Chapter 7: Characters and Strings
 
-- (122) Instead of specifying a character encoding like java, each C implementation defines botha  _source character set_ in which source files are written and an _execution character set_ used for character and string literals at compile time
+- (122) Instead of specifying a character encoding like java, each C implementation defines both a  _source character set_ in which source files are written and an _execution character set_ used for character and string literals at compile time
 
-- (133) There is some risk that, if the string literal changes during maintenance, a string could unintentionally be changed to a character array with no terinating null character, particularly when the string literal is defined separately from the declaration \[...\] If you don't specify the bound of the array, the compiler will allocate sufficient space for the entire string literal, including the terminating null character.
+- (133) There is some risk that, if the string literal changes during maintenance, a string could unintentionally be changed to a character array with no terminating null character, particularly when the string literal is defined separately from the declaration \[...\] If you don't specify the bound of the array, the compiler will allocate sufficient space for the entire string literal, including the terminating null character.
 
 - (134) POSIX also defines several string-handling functions, such as strdup and strndup, that provide another set of string APIs you can use on POSIX-compliant platforms such as Linux and Unix (IEE Std 1003.1:2018)
     - **POSIX defines functions? So is it a library? What does it actually mean to be POSIX-compliant?**
@@ -243,17 +243,17 @@ QUESTION: what's a _compound literal_?
     - "Because the gets function is so bad, we'll spend some time examining why it's so awful"
     - lol
 
-- Annex K bountds checking interface has a fixed version `gets_s`
+- Annex K bounds checking interface has a fixed version `gets_s`
 - POSIX string functions (strdup, strndup) allocate dynamic memory when called so each need to be followed by a call to free
 
 ### Chapter 8: Input/Output
 
 - (148) C uses the opaque FILE data type to represent streams
-- (150) The output stream of one program can be redirected to be another application's input stream by using POSIX pipes \[...\] chain applications togeher by separating commands with the vertical bar character `|`
+- (150) The output stream of one program can be redirected to be another application's input stream by using POSIX pipes \[...\] chain applications together by separating commands with the vertical bar character `|`
   - **Pipes are a POSIX feature too??** 
 - (150) Each stream has _orientation_ that indicates whether the stream contains narrow or wide characters.
 - (151) When you open or create a file its associated with a stream
-- (156) If putc is is implemented as a macro, it may evaluate its arguments more than once, so the arguments should never be expressions with side effects.
+- (156) If putc is implemented as a macro, it may evaluate its arguments more than once, so the arguments should never be expressions with side effects.
   - See CERT C rule FIO41-C
 - REMINDER: don't read strings with gets() always use fgets()
   - gets was deprecated in C99 and removed from C11
@@ -292,7 +292,7 @@ QUESTION: what's a _compound literal_?
 
 - (170) the preprocessor runs before the source code is translated into object code by the translator. This allows the preprocessor to modify the source code written by the user before it's operated on by the translator.
 
-- _preprocessing directives_ are made of primitave tokens and begin with a leading '#' and terminate with a newline character
+- _preprocessing directives_ are made of primitive tokens and begin with a leading '#' and terminate with a newline character
 
 - Listing 9-3: #error directive
     ```c
@@ -318,7 +318,7 @@ QUESTION: what's a _compound literal_?
     - [listing 9-5](./chapter-9/macros.c)
 
 - (177) _Hungarian notation_ is an identifier-naming convention in which the name of a variable or function indicates its intention or kind, and in some dialects, its type.
-- (178) Any parameter in the replacement listpreceded by a '#' token is replaced with a string literal preprocessing token that contains the text of the argument preprocessing tokens (a process sometimes called _stringizing_)
+- (178) Any parameter in the replacement list preceded by a '#' token is replaced with a string literal preprocessing token that contains the text of the argument preprocessing tokens (a process sometimes called _stringizing_)
 
     source:
     ```c
@@ -329,7 +329,7 @@ QUESTION: what's a _compound literal_?
     ```c
     const char *str = "12";
     ```
-- (178) The preprocessor also deletes all instances of the '##' preprocessing token in the replacement list, concatenating the preceding preprocessing token with teh following token, which is called _token pasting_
+- (178) The preprocessor also deletes all instances of the '##' preprocessing token in the replacement list, concatenating the preceding preprocessing token with the following token, which is called _token pasting_
 
     source:
     ```c
@@ -340,7 +340,7 @@ QUESTION: what's a _compound literal_?
     ```c
     int food_bar = 12;
     ```
-- Tabel 9-9: unsafe expansion
+- Table 9-9: unsafe expansion
 
     source:
     ```c
@@ -359,7 +359,7 @@ QUESTION: what's a _compound literal_?
 - (180) a comma in a function-like macro invocation is always interpreted as a macro argument delimiter
     - I'm not sure I understand this example in table 9-10 on page 180
 
-- (180) A _generic selection expression_ maps the type of its unevaluated operand expression to an associated expression. If none of th associated types match, it can optionally map to a default expression. You can use _type-generic macros_ to make your code more readable.
+- (180) A _generic selection expression_ maps the type of its unevaluated operand expression to an associated expression. If none of the associated types match, it can optionally map to a default expression. You can use _type-generic macros_ to make your code more readable.
     - [Table 9-11](./chapter-9/generic_selection_expression.c)
 
 - (182) Table 9-12: Predefined Macros
@@ -367,12 +367,12 @@ QUESTION: what's a _compound literal_?
 ### Chapter 10: Program Structure
 
 - the author validates some patterns in the way I use header files to compartmentalize code
-- (190) Libraries can often allow a program written with one compiler to use code wthat was built by a different compiler
+- (190) Libraries can often allow a program written with one compiler to use code that was built by a different compiler
     - I never thought about this but I guess I should have guessed it
     - I wonder what the limits of this are. I suppose as long as something compiles to machine code for your processor architecture, it really wouldn't matter what compiler or implementation was used to build it?
 
 - (190) A _static library_ \[...\] incorporates its machine or object code directly into the resulting executable, which means a static library is often tied to a specific release of the program
-- (190) A _dynamic library_, also referred to as a shared library or a dynamic shared object, is an executable without the startup routines. It can be pakced with the executable or installed separately but must be available when the executable calls a function provided by the dynamic library
+- (190) A _dynamic library_, also referred to as a shared library or a dynamic shared object, is an executable without the startup routines. It can be packed with the executable or installed separately but must be available when the executable calls a function provided by the dynamic library
 
 - linkage:
     ```c
@@ -385,7 +385,7 @@ QUESTION: what's a _compound literal_?
     - `foo` is declared with explicit external linkage.
     - `j` has no linkage because it is a parameter.
 
-    - (192) within the source file all declarations that are implementation details should be explicitly declared static to keep them private, accesible to just that source file.
+    - (192) within the source file all declarations that are implementation details should be explicitly declared static to keep them private, accessible to just that source file.
 
 - in the prime test example function definition `static unsigned long long *convert_command_line_args(int argc, const char *argv[], size_t *num_args)` causes a compile error
     ```sh
@@ -409,7 +409,7 @@ QUESTION: what's a _compound literal_?
         - (201) because static assertions are evaluated at compile time, placing them within executable code has no impact on the runtime efficiency of the program.
         - See CERT C rule FIO34-C for more info on the error this assertion is checking for
     - [listing 11-3](/chapter-11/bounds.c)
-        - (202) the string literal is a message for the developer or maintainer, and not an end user of the system. It's inteded to provide information useful to debugging.
+        - (202) the string literal is a message for the developer or maintainer, and not an end user of the system. It's intended to provide information useful to debugging.
 - assert example:
     ```c
     void *dup_string(size_t size, char *str) {
